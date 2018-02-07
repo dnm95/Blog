@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <!-- MATERIALIZE ICONS-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+  
+    <%= render "partials/navigation"%>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <!-- CONTENIDO PRINICIPAL>-->
+    <%= yield %>
+  </body>
+
+  <!-- Script para hacer responsive el menu -->
+    <script>
+      $( document ).ready(function() {
+        $(".button-collapse").sideNav();
+      });
+    </script>
+
+</html>

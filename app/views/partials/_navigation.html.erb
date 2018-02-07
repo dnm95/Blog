@@ -1,0 +1,40 @@
+<header>
+  <!-- BARRA DE NAVEGACION -->
+  <div class="row">
+    <nav class="light-blue darken-2">
+      <div class="nav-wrapper">
+        <div class="col s12">
+          <%= link_to "Blog Facilito", root_path, class:"brand-logo" %>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><%= link_to "Inicio", root_path %></li>
+            <li><a href="#">Diseño</a></li>
+            <li><a href="#">Programación</a></li>
+            <li><a href="#">Tecnología</a></li>
+            <!-- SABER SI EL USUARIO ESTA AUTENTICADO -->
+            <% if user_signed_in? %>
+              <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
+            <%else%>
+              <li><%= link_to "Iniciar Sesión", new_user_session_path %></li>
+              <li><%= link_to "Crear Cuenta", new_user_registration_path %></li>
+            <%end%>
+          </ul>
+          <!-- MENU RESPONSIVE -->
+          <ul class="side-nav" id="mobile-demo">
+            <li><%= link_to "Inicio", root_path %></li>
+            <li><a href="#">Diseño</a></li>
+            <li><a href="#">Programación</a></li>
+            <li><a href="#">Tecnología</a></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
+            <%else%>
+              <li><%= link_to "Iniciar Sesión", new_user_session_path %></li>
+              <li><%= link_to "Crear Cuenta", new_user_registration_path %></li>
+            <%end%>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- FIN BARRA DE NAVEGACION -->
+</header>

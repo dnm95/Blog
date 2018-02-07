@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col s12 m6 offset-m3 valign">
+    <h2>Iniciar Sesión</h2>
+
+     <!-- INICIO FORMULARIO LOGIN -->
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+      <!-- INPUT EMAIL -->
+      <div class="input-field">
+        <%= f.email_field :email, id: "email" ,class: "validate", required: "true", autocomplete: "off" %>
+        <label for="email">Correo Electrónico</label>
+      </div>
+
+      <!-- INPUT PASSWORD -->
+      <div class="input-field">
+        <%= f.password_field :password, id: "password" ,class: "validate", required: "true" %>
+        <label for="password">Contraseña</label>
+      </div>
+
+      <!-- CHECKBOX RECORDARME -->
+      <% if devise_mapping.rememberable? -%>
+        <div class="left">
+          <%= f.check_box :remember_me, id:"remember" %>
+          <label for="remember">Recordarme</label>
+        </div>
+      <% end -%>
+
+      <div class="clearfix"></div>
+
+      <!-- BOTON INICIAR SESION-->
+      <div class="input-field right">
+        <%= f.submit "Iniciar Sesión", class:"waves-effect waves-light btn light-blue darken-2" %>
+      </div>
+    <% end %>
+    <!-- FIN DEL FORMULARIO DE LOGIN -->
+
+    <!-- ENLACES EXTRAS 
+    <%= render "devise/shared/links" %>-->
+  </div>
+</div>

@@ -1,0 +1,56 @@
+body{
+    background: #fafafa !important;
+}
+/*------------------------------- STYLE FOR NAVBAR ----------------------*/
+nav ul a {
+    font-size: 1.1rem !important;
+}
+
+/*-------------------------------- STYLE FOR FORMS ------------------------*/
+/* font size for labels */
+.input-field label{
+    font-size: 1.2rem !important;
+}
+/*font size for inputs */
+.input-field input[type=text], .input-field input[type=email],
+.input-field input[type=password], .input-field textarea{
+    font-size: 1.1rem !important;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label, .input-field textarea:focus + label, .input-field input[type=email]:focus + label,
+.input-field input[type=password]:focus + label{
+    color: #0288d1 !important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus, .input-field input[type=email]:focus,
+.input-field input[type=password]:focus{
+    border-bottom: 1px solid #0288d1 !important;
+    box-shadow: 0 1px 0 0 #0288d1 !important;
+}
+/* textarea underline focus color */
+.input-field textarea:focus {
+    border-bottom: 1px solid #0288d1 !important;
+    box-shadow: 0 1px 0 0 #0288d1 !important;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #0288d1 !important;
+}
+
+/*-------------------------------- ARTICLE DISPLAY -----------------*/
+.article-container{
+    padding: 1.5em;
+}
+.comment-form{
+    margin-top: 2.5em;
+    height: auto;
+    padding: 1.5em;
+}
+.comment-body{
+    padding-left: 1.2em;
+}
+
+/*---------------------------------OTHER STYLES --------------------*/
+.bold{
+    font-weight: bold; 
+}

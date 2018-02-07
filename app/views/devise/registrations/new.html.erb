@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col s12 m6 offset-m3 valign">
+    <h2>Crear Cuenta</h2>
+
+    <!-- INICIO FORMULARIO REGISTER -->
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <!-- INPUT EMAIL -->
+      <div class="input-field">
+        <%= f.email_field :email, id: "email" ,class: "validate", required: "true", autocomplete: "off" %>
+        <label for="email">Correo Electrónico</label>
+      </div>
+
+      <!-- INPUT PASSWORD -->
+      <div class="input-field">
+        <%= f.password_field :password, id: "password" ,class: "validate", required: "true" %>
+        <label for="password">Contraseña (6 carácteres mínimo)</label>
+      </div>
+
+      <!-- INPUT PASSWORD CONFIRMATION-->
+      <div class="input-field">
+        <%= f.password_field :password_confirmation, id: "password_confirmation" ,class: "validate", required: "true" %>
+        <label for="password_confirmation">Repetir Contraseña</label>
+      </div>
+
+      <!-- BOTON INICIAR SESION-->
+      <div class="input-field right">
+        <%= f.submit "Registrarse", class:"waves-effect waves-light btn light-blue darken-2" %>
+      </div>
+
+    <% end %>
+    <!-- FIN FORMULARIO REGISTER -->
+
+    <!-- ENLACES EXTRAS>
+    <%= render "devise/shared/links" %>-->
+  </div>
+</div>

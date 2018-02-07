@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col s12 m10 offset-m1">
+        <h2><%= name %> Artículo</h2>
+        <!--MOSTRAR ERRORES DE VALIDACION>-->
+        <% @article.errors.full_messages.each do |message| %>
+            <div class="row">
+                <div class="card-panel red darken-1">
+                    <span class="white-text">* <%= message %> </span>
+                </div>
+            </div>
+        <%end%>
+        <%= form_for(@article) do |f| %>
+            <!-- INPUT TITULO ARTICULO -->
+            <div class="input-field">
+                <i class="material-icons prefix">title</i>
+                <%= f.text_field :title, id: "title" ,class: "validate", required: "true" %>
+                <label for="title">Título</label>
+            </div>
+            <!-- TEXTAREA CONTENIDO ARTICULO -->
+            <div class="input-field">
+                <i class="material-icons prefix">edit_mode</i>
+                <%= f.text_area :body, id: "textarea1", class:"materialize-textarea", required: "true" %>
+                <label for="textarea1">Contenido del artículo</label>
+            </div>
+            <!-- INPUT IMAGEN ARTICULO -->
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>Elegir Imagen</span>
+                    <%= f.file_field :cover %>
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+            <!-- BOTON DE GUARDAR -->
+            <div class="right">
+                <%= f.submit "Guardar", class:"waves-effect waves-light btn light-blue darken-2" %>
+            </div>
+        <%end%>
+    </div>
+</div>
