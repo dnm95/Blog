@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col s12 m10 offset-m1 edit-container white z-depth-1">
-        <h2><%= name %> Artículo</h2>
+        <h2 class="truncated"><%= name %> Artículo</h2>
         <!--MOSTRAR ERRORES DE VALIDACION>-->
         <% @article.errors.full_messages.each do |message| %>
             <div class="row">
@@ -32,6 +32,15 @@
                     <input class="file-path validate" type="text">
                 </div>
             </div>
+            <!-- INPUT CATEGORIAS ARTICULO -->
+            <p class="category-label">Selecciona las categorías:</p>
+            <div class="checkboxes">
+                <% @categories.each do |category| %>
+                    <%= check_box_tag "categories[]", category.id %>
+                    <%= category.name %> <br>
+                <%end%>
+            </div>
+            <div class="clearfix"></div>
             <!-- BOTON DE GUARDAR -->
             <div class="right">
                 <%= f.submit "Guardar", class:"waves-effect waves-light btn light-blue darken-2" %>

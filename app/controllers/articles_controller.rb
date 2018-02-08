@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
   #GET /articles/new
   def new
     @article = Article.new
+    @categories = Category.all
   end
 
   def edit
@@ -28,6 +29,7 @@ class ArticlesController < ApplicationController
   #POST /articles
   def create
     @article = current_user.articles.new(article_params)
+    @article.categories = params[:categories]
     
     #Guardar articulo en la base de datos y redireccionar
     if @article.save
@@ -59,7 +61,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title,:body,:cover)
+    params.require(:article).permit(:title,:body,:cover,:categories)
   end
 
 end

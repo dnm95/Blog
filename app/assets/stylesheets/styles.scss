@@ -62,11 +62,26 @@ nav ul a {
 .btn-send{
     margin-top: 1.5em;
 }
+/* Label for input color */
 .label-input-color{
     font-size: 1.2rem;
     color: #9e9e9e;
     padding-left: 0.6em;
     padding-right: 1em;
+}
+.category-label{
+    font-size: 1.3rem;
+}
+.checkboxes{
+    font-size: 1.2rem;
+}
+.checkboxes input[type=checkbox]{
+    opacity: 1 !important;
+    pointer-events: auto;
+    position: relative !important;
+    display: inline-block !important;
+    width: 1em;
+    height: 1em;
 }
 /*------------------------------- ARTICLE LIST --------------------*/
 .article-list-header{
@@ -149,6 +164,13 @@ nav ul a {
 i.icon-red{
     color: #f44336;
     cursor: pointer;
+}
+.chip-margin{
+    margin-top: 1.5em !important;
+}
+.chip a{
+    color: white !important;
+    font-size: 0.9rem !important;
 }
 
 /*---------------------------------OTHER STYLES --------------------*/
