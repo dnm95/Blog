@@ -1,34 +1,75 @@
 <div class="row">
+    <div class="col s12 col m12 article-header">
+        <h3 class="truncate center-align"><%= @article.title %></h3>
+        <div class="clearfix"></div>
+        <% unless @article.user.nil? %>
+            <div class="author center-align">
+                <p>Autor: <%= @article.user.email %></p>
+                <p>Visitas: <%= @article.visits_count %></p>
+                </p>
+            </div>
+        <%end%>
+    </div>
+</div>
+
+<div class="row">
     <div class="article-container">
-        <div class="white z-depth-1 article-container">
-            <h3 class="center-align"><%= @article.title %></h3>
+        <div class="center-align">
 
             <!-- INICIO CONTENIDO DEL ARTICULO -->
+            <div class="paragraph">
+                <p><%= @article.body%></p>
+            </div>
             <div>
                 <%= image_tag @article.cover.url(), class:"responsive-img center-align"%>
             </div>
-            <div>
-                <p><%= @article.body%></p>
-            </div>
-            <% unless @article.user.nil? %>
-                <p>
-                    Escrito por: <span class="bold"><%= @article.user.email %></span> - 
-                    Visitas: <%= @article.visits_count %> - <%= link_to "Editar Artículo", edit_article_path(@article) %>
-                </p>
-            <%end%>
             <!-- FIN CONTENIDO ARTICULO -->
+
+        </div>
+    
+        <!-- FORMULARIO DE COMENTARIOS-->
+        <div class="comment-form white z-depth-1">
+            <% if user_signed_in? %>
+                <%= render "comments/form", :comment => @comment %>
+                <div class="clearfix"></div>
+            <% else %>
+                <div class="not-logged">
+                    Para poder comentar necesitas <%= link_to "iniciar sesión", new_user_session_path %>
+                    o <%= link_to "registrarte", new_user_registration_path %>
+                </div>
+            <%end%>
+        </div>
+        <!-- FIN DE FORMULARIO DE COMENTARIOS-->
+        
+        <!-- CONTENEDOR DE COMENTARIOS -->
+        <div id="comments-box">
+            <% @article.comments.each do |comment| %>
+                    <div class="comment white z-depth-1">
+                        <span class="author-comment bold"><%= comment.user.email %></span>
+                        <i class="material-icons right">favorite</i>
+                        <p class="comment-body"><%= comment.body %></p>
+                    </div>
+                <%end%>
         </div>
 
-        <!-- INICIO DE COMENTARIOS-->
-        <div class="comment-form white z-depth-1" id="comments-box">
-            <h5>Comentarios</h5>
-            <%= render "comments/form", :comment => @comment %>
-            <div class="clearfix"></div>
-            <% @article.comments.each do |comment| %>
-                <span class="bold"><%= comment.user.email %></span> dice:
-                <p class="comment-body"><%= comment.body %></p>
+        <div class="clearfix"></div>
+
+        <!-- BOTON DE EDITAR ARTICULO, SOLO PUEDE EDITAR SI ES EL MISMO USARIO QUE LO CREO -->
+        <% if user_signed_in? %>
+            <% if @article.user.email == current_user.email %>
+                <div class="fixed-action-btn">
+                    <a class="btn-floating btn-large blue-grey darken-1">
+                        <i class="large material-icons">menu</i>
+                    </a>
+                    <ul>
+                        <li><%= link_to @article, method: :delete, class:"btn-floating red" do %>
+                        <i class="material-icons">delete</i><%end%></li>
+                        <li><%= link_to edit_article_path(@article), class:"btn-floating green" do %>
+                        <i class="material-icons">mode_edit</i><%end%></li>
+                    </ul>
+                </div>
             <%end%>
-        </div>
-        <!-- FIN DE COMENTARIOS-->
+        <%end%>
+
     </div>
 </div>
