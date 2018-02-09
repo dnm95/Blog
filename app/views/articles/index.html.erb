@@ -15,6 +15,9 @@
                         <%= image_tag article.cover.url(), class:"responsive-img center-align"%>
                     </div>
                     <p class="truncate"><%= article.body%></p>
+                    <div class="visits">
+                        Visitas: <%= article.visits_count%>                    
+                    </div>
                 </div>
                 <div class="card-action center-align">
                     <%= link_to "Ver Artículo", article %>

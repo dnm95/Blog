@@ -26,11 +26,14 @@
             <!-- FIN CONTENIDO ARTICULO -->
 
             <!-- MOSTRAR CATEGORIAS DEL ARTICULO -->
-            <% @article.categories.each do |category| %>
-                <div class="chip light-blue darken-2 chip-margin">
-                    <%= link_to category.name, category %>
-                </div>
-            <%end%>
+            <div class="tags">
+                <span class="categories-text">Categorías:</span>
+                <% @article.categories.each do |category| %>
+                    <div class="chip chip-margin" style="background-color:<%=category.color %>;">
+                        <%= link_to category.name, category %>
+                    </div>
+                <%end%>
+            </div>
         </div>
     
         <!-- FORMULARIO DE COMENTARIOS-->
