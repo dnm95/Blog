@@ -12,6 +12,8 @@ class Article < ApplicationRecord
     has_attached_file :cover, style: { medium: "1280x720", thumb: "800x600" }
     validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
+    scope :ultimos, ->{ order("created_at DESC") }
+
     #Custom setter
     def categories=(value)
         @categories = value

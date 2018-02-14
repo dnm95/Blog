@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   #GET /articles
   def index
     #Obtener todos los articulos de la BD
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page:1).ultimos
   end
 
   #GET /articles/:id

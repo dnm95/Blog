@@ -35,6 +35,12 @@ gem 'material_icons'
 #Use devise authentication
 gem 'devise'
 
+#Use Paginate
+gem 'will_paginate'
+
+#Use Bcrypt
+gem 'bcrypt', platforms: :ruby
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
