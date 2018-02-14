@@ -11,6 +11,14 @@
     <%= render @category.articles %>
 </div>
 
+<!-- BOTON DE AÑADIR ARTICULO -->
+<% if user_signed_in? %>
+    <div class="fixed-action-btn">
+        <%= link_to new_article_path(@article), class:" btn-large btn-floating blue-grey darken-1" do %>
+        <i class="material-icons">add</i><%end%>
+    </div>
+<%end%>
+
 <!--
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>-->

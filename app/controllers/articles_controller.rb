@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   #GET /articles
   def index
     #Obtener todos los articulos de la BD
-    @articles = Article.paginate(page: params[:page], per_page:1).ultimos
+    @articles = Article.paginate(page: params[:page], per_page:3).ultimos
   end
 
   #GET /articles/:id
@@ -47,6 +47,7 @@ class ArticlesController < ApplicationController
 
   #PUT /articles/:id
   def update
+    @article.categories = params[:categories]
     if @article.update(article_params)
       redirect_to @article
     else
